@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cushites – Borana | Kenya Cultural Heritage Hub</title>
+<script>tailwind.config={theme:{extend:{colors:{"surface":"#fff8f5","surface-container-lowest":"#ffffff","surface-container-low":"#fff1e9","surface-container":"#ffeadc","surface-container-high":"#ffe3cf","surface-container-highest":"#ffdcc2","on-surface":"#2e1500","on-surface-variant":"#444748","outline":"#747878","outline-variant":"#c4c7c7","primary":"#000000","on-primary":"#ffffff","secondary":"#b52424","on-secondary":"#ffffff","on-tertiary-container":"#499260","background":"#fff8f5","on-background":"#2e1500","surface-tint":"#5f5e5e"},fontFamily:{"display":["Montserrat","sans-serif"],"body":["'Source Serif 4'","serif"],"label":["Montserrat","sans-serif"],"caption":["Montserrat","sans-serif"]}}}}</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<style>
+  .beadwork-divider{height:4px;background:repeating-linear-gradient(90deg,#b52424,#b52424 16px,#000 16px,#000 32px,#b52424 32px,#b52424 48px,transparent 48px,transparent 56px);}
+  .nav-link{position:relative;}.nav-link::after{content:'';position:absolute;width:0;height:2px;bottom:-4px;left:0;background:#b52424;transition:width .3s;}.nav-link:hover::after{width:100%;}
+  .heritage-corner{border-radius:8px 0 8px 0;}
+  .hover-lift{transition:transform .3s ease,box-shadow .3s ease;}.hover-lift:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(46,21,0,.15);}
+  body{font-family:'Source Serif 4',serif;background:#fff8f5;color:#2e1500;}
+ h1,h2,h3,h4,h5,.font-display,.font-headline,.font-label,.font-caption{font-family:'Montserrat',sans-serif;}
+  .quiz-opt{cursor:pointer;border:2px solid #c4c7c7;padding:1rem 1.25rem;border-radius:0.5rem;transition:all .2s;display:flex;align-items:center;gap:0.75rem;font-family:'Source Serif 4',serif;font-size:1rem;color:#2e1500;background:#fff;}
+  .quiz-opt:hover:not(.locked){border-color:#b52424;background:#fff1e9;}
+  .quiz-opt.selected{border-color:#b52424;background:#fff1e9;}
+  .quiz-opt.correct{border-color:#499260!important;background:#a7f4b920!important;}
+  .quiz-opt.wrong{border-color:#ba1a1a!important;background:#ffdad620!important;}
+  .quiz-opt.locked{cursor:default;}
+  .progress-bar{transition:width .4s ease;}
+    .hero-color{background:linear-gradient(90deg,#d86b11,#f39b9b);color: #fff;}
+.text-color{
+    color: #d86b11;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.text-rounder{
+    background-color: rgba(0,0,0,0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+}
+</style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<header class="bg-white dark:bg-surface-dim border-b border-outline/15 shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-1 md:px-2 py-1 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center"><span class="font-display font-black text-sm text-on-primary"></span></div>
+      <span class="font-display font-bold text-lg text-primary tracking-tight">Heritage Hub</span>
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a href="index.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Home</a>
+      <a href="kikuyu.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Bantu</a>
+      <a href="luo.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Nilotes</a>
+      <a href="borana.html" class="font-label font-semibold text-sm text-color border-b-2 border-secondary uppercase tracking-wider">Cushites</a>
+      <a href="arab.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Semites</a>
+      <a href="quiz.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Quiz</a>
+      <a href="contact.html" class="font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors nav-link uppercase tracking-wider">Contact</a>
+    </nav>
+      <div class="relative hidden md:block">
+        <button id="theme-toggle" class="p-2 text-primary theme-toggle" onclick="toggleMenu()">
+          <span class="material-symbols-outlined">light_mode</span>
+        </button>
+        <div id="theme-menu"
+          class="theme-menu hidden absolute right-0 mt-2 w-40 bg-surface border border-outline/15 rounded shadow-lg z-50">
+          <button class="w-full text-left px-4 py-2 hover:bg-surface-container-low"
+            onclick="setTheme('light')">Light</button>
+          <button class="w-full text-left px-4 py-2 hover:bg-surface-container-low"
+            onclick="setTheme('dark')">Dark</button>
+          <button class="w-full text-left px-4 py-2 hover:bg-surface-container-low"
+            onclick="setTheme('system')">System</button>
+        </div>
+      </div>
+    <button class="md:hidden text-primary p-2" onclick="document.getElementById('mob').classList.toggle('hidden')"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+  <div id="mob" class="hidden md:hidden bg-surface border-t border-outline/15 px-5 py-4 flex flex-col gap-3">
+    <a href="index.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Home</a>
+    <a href="kikuyu.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Bantu – Kikuyu</a>
+    <a href="luo.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Nilotes – Luo</a>
+    <a href="borana.html" class="font-label font-semibold text-sm uppercase text-color">Cushites – Borana</a>
+    <a href="arab.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Semites – Arab</a>
+    <a href="quiz.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Test Yourself</a>
+    <a href="contact.html" class="font-label font-semibold text-sm uppercase text-on-surface-variant">Contact</a>
+  </div>
+</header>
+
+<section class="relative w-full h-[500px] md:h-[600px] flex items-end pb-16 px-5 md:px-16 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img src="images/nothern.webp" alt="Northern Kenya arid plains" class="w-full h-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto w-full text-color">
+    <span class="hero-color inline-block bg-on-tertiary-container text-on-primary font-label font-semibold text-xs px-3 py-1 rounded-sm mb-4 uppercase tracking-widest">Cushitic Community</span>
+    <h1 class="font-display font-black text-4xl md:text-6xl text-on-primary mb-4 tracking-tight leading-tight">The Borana</h1>
+    <p class="font-body text-lg text-surface-container-low max-w-2xl leading-relaxed">Masters of the arid north — a proud Cushitic people whose democratic Gadaa system and camel-herding traditions have sustained life in Kenya's most challenging landscapes.</p>
+  </div>
+</section>
+
+<div class="beadwork-divider"></div>
+
+<main class="max-w-7xl mx-auto px-5 md:px-16 py-16 flex flex-col gap-20">
+
+  <!-- Origin -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="flex flex-col gap-5">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Origin</span>
+      <h2 class="font-display font-bold text-3xl text-primary tracking-tight">From the Horn of Africa</h2>
+      <div class="beadwork-divider w-24"></div>
+      <p class="font-body text-lg text-on-surface-variant leading-relaxed">The Borana are a Cushitic people and part of the vast Oromo nation, originating from the highlands of Ethiopia and the Horn of Africa. They belong to the Eastern Cushitic branch of the Afroasiatic language family — an ancient linguistic group predating both the Bantu and Nilotic migrations into East Africa.</p>
+      <p class="font-body text-base text-on-surface-variant leading-relaxed">The Borana migrated southward into present-day northern Kenya centuries ago, driven by drought, expanding populations, and inter-clan competition for grazing lands. They settled primarily in the Marsabit, Moyale, Isiolo, and Wajir counties of Kenya, where the semi-arid landscape demanded and shaped a specialized pastoral lifestyle. Their resilience in such environments stands as testimony to profound ecological knowledge passed down through generations.</p>
+    </div>
+    <div class="relative">
+      <img src="images/herders.jpg" alt="Borana herders" class="w-full h-80 object-cover heritage-corner shadow-lg"/>
+      <div class="absolute -bottom-3 -right-3 w-full h-full border-2 border-on-tertiary-container heritage-corner -z-10"></div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="flex flex-col items-center gap-8">
+    <div class="text-center">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Introduction Video</span>
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-primary mt-3 tracking-tight">The Borana: Keepers of the Gadaa</h2>
+    </div>
+    <div class="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-lg border border-outline/10">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/oDCF57hfNUM" title="Borana Culture" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div class="beadwork-divider"></div>
+
+  <!-- Culture -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div class="relative order-2 md:order-1">
+      <img src="images/villagelife.webp" alt="Borana village life" class="w-full h-72 object-cover heritage-corner shadow-lg"/>
+    </div>
+    <div class="flex flex-col gap-5 order-1 md:order-2">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Culture</span>
+      <h2 class="font-display font-bold text-3xl text-primary tracking-tight">Songs, Stars &amp; Sacred Wells</h2>
+      <div class="beadwork-divider w-24"></div>
+      <p class="font-body text-lg text-on-surface-variant leading-relaxed">Borana culture is deeply oral. Poetry (<em>siinqee</em>), songs (<em>weedduu</em>), and proverbs (<em>jechoota</em>) encode history, moral values, and ecological wisdom. Ceremonies marking each stage of the Gadaa cycle — births, graduations, harvests — are accompanied by communal singing and dance.</p>
+      <p class="font-body text-base text-on-surface-variant leading-relaxed">Sacred wells (<em>ela</em>) are the spiritual and social heart of Borana communities. The ritual singing that accompanies cattle watering at these deep stone wells (<em>singing wells</em>) has been recognized internationally as a remarkable cultural heritage. Men sing to their cattle in rotating shifts as they are lowered into ancient wells — a practice that reflects both religious devotion and ecological management.</p>
+    </div>
+  </section>
+
+  <!-- Traditional Clothing -->
+  <section class="flex flex-col gap-8">
+    <div class="text-center">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Dress</span>
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-primary mt-3 tracking-tight">Traditional Clothing</h2>
+      <p class="font-body text-base text-on-surface-variant mt-3 max-w-2xl mx-auto">Borana attire is adapted to the hot, arid climate — lightweight cottons, leather, and camel-hair garments adorned with distinctive beadwork reflecting Cushitic aesthetic traditions.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline/10 hover-lift">
+        <img src="images/boranawomen.jpeg" alt="Borana women's dress" class="w-full h-52 object-cover"/>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-base text-primary mb-2">Women's Attire</h3>
+          <p class="font-body text-sm text-on-surface-variant">Borana women traditionally wear long wraps (<em>haadha</em>) in bright cotton, head-scarves, and elaborate bead necklaces. Silver jewelry, including large hoop earrings and forehead ornaments, signals marital status and is given at key life events.</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline/10 hover-lift">
+        <img src="images/boranamen.avif" alt="Borana men" class="w-full h-52 object-cover"/>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-base text-primary mb-2">Men's Dress</h3>
+          <p class="font-body text-sm text-on-surface-variant">Borana men traditionally wear white cotton garments — a <em>kuta</em> (toga-like wrap) — with sandals made from camel hide. Warriors and elders are distinguished by their distinctive walking sticks, copper bangles, and the Gadaa grade staff which marks their social position.</p>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline/10 hover-lift">
+        <img src="images/boranaceremony.webp" alt="Borana ceremony" class="w-full h-52 object-cover"/>
+        <div class="p-5">
+          <h3 class="font-display font-semibold text-base text-primary mb-2">Ceremonial Dress</h3>
+          <p class="font-body text-sm text-on-surface-variant">During Gadaa graduation ceremonies and major festivals, men wear elaborate headdresses of bird feathers and carry ceremonial staffs. Women apply henna patterns and wear their finest silver jewelry at these occasions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traditional Food -->
+  <section class="bg-surface-container-low rounded-2xl p-8 md:p-12 flex flex-col gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="flex flex-col gap-5">
+        <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Food</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-primary tracking-tight">Traditional Foods</h2>
+        <div class="beadwork-divider w-24"></div>
+        <p class="font-body text-base text-on-surface-variant leading-relaxed">Borana cuisine is built around pastoralist abundance — <strong>camel milk</strong>, <strong>goat meat</strong>, and <strong>cattle products</strong> form the dietary foundation. Fresh and fermented milk (<em>dakkee</em>) is the most important daily food, consumed in enormous quantities and serving both nutritional and social bonding functions.</p>
+        <p class="font-body text-base text-on-surface-variant leading-relaxed"><strong>Nyiru</strong> (roasted meat) and <strong>maraq</strong> (meat broth) are prepared for celebrations and important visitors. Sorghum porridge (<em>uji</em>) and flatbreads are staple carbohydrates. During droughts, blood drawn from live cattle (mixed with milk) provided emergency nutrition — a practice found across East African pastoralist communities. Food sharing with guests is a sacred obligation in Borana culture.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="images/camel.jpg" alt="Camel herding" class="w-full h-40 object-cover rounded-lg shadow"/>
+        <img src="images/roast.png" alt="Meat roasting" class="w-full h-40 object-cover rounded-lg shadow"/>
+        <img src="images/boranamilk.png" alt="Dairy products" class="w-full h-40 object-cover rounded-lg shadow"/>
+        <img src="images/food.jpg" alt="Pastoralist food" class="w-full h-40 object-cover rounded-lg shadow"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Economic Sustainability -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="md:col-span-1 flex flex-col gap-5">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Economy</span>
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-primary tracking-tight">Pastoral Economy</h2>
+      <div class="beadwork-divider w-24"></div>
+      <p class="font-body text-base text-on-surface-variant leading-relaxed">The Borana are quintessential pastoralists. Their economy revolves entirely around livestock — camels, cattle, goats, and sheep are not merely economic assets but stores of wealth, social currency, and spiritual significance.</p>
+      <p class="font-body text-base text-on-surface-variant leading-relaxed">Today, Borana communities are adapting to changing climates, with some engaging in small-scale trade, wildlife conservation partnerships, and cross-border livestock markets with Ethiopia and Somalia.</p>
+    </div>
+    <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-surface-container-lowest p-6 rounded-xl border-t-4 border-secondary shadow-sm"><span class="material-symbols-outlined text-secondary text-3xl">pets</span><h3 class="font-display font-semibold text-base text-primary mt-3 mb-2">Livestock Herding</h3><p class="font-body text-sm text-on-surface-variant">Camels, cattle, goats, and sheep form the primary economic base. The size of one's herd directly equates to wealth, status, and social influence within the Borana system.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl border-t-4 border-primary shadow-sm"><span class="material-symbols-outlined text-primary text-3xl">water_drop</span><h3 class="font-display font-semibold text-base text-primary mt-3 mb-2">Water Management</h3><p class="font-body text-sm text-on-surface-variant">The Borana developed sophisticated communal water management systems around deep stone wells (ela), managing access and rotation through Gadaa governance structures.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl border-t-4 border-on-tertiary-container shadow-sm"><span class="material-symbols-outlined text-on-tertiary-container text-3xl">swap_horiz</span><h3 class="font-display font-semibold text-base text-primary mt-3 mb-2">Trade &amp; Barter</h3><p class="font-body text-sm text-on-surface-variant">Borana traded livestock and animal products with neighboring Somali, Rendille, and Bantu communities in exchange for grain, metalwork, and other goods unavailable in arid lands.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl border-t-4 border-surface-tint shadow-sm"><span class="material-symbols-outlined text-surface-tint text-3xl">eco</span><h3 class="font-display font-semibold text-base text-primary mt-3 mb-2">Conservation</h3><p class="font-body text-sm text-on-surface-variant">Modern Borana communities are increasingly involved in wildlife conservancy programs around Marsabit and Mathews Range, blending traditional land knowledge with conservation economics.</p></div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+  <section class="bg-primary text-on-primary rounded-2xl p-8 md:p-12 relative overflow-hidden">
+    <div class="absolute top-0 right-0 opacity-5"><span class="material-symbols-outlined" style="font-size:300px">account_balance</span></div>
+    <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div class="flex flex-col gap-5">
+        <span class="inline-block bg-secondary text-on-secondary font-label font-semibold text-xs px-3 py-1 rounded-sm uppercase tracking-widest w-fit">Leadership</span>
+        <h2 class="font-display font-bold text-2xl md:text-3xl tracking-tight">The Gadaa System</h2>
+        <p class="font-body text-base text-surface-container-low leading-relaxed">The Gadaa is one of Africa's most sophisticated indigenous democratic governance systems, recognized by UNESCO as an Intangible Cultural Heritage of Humanity. It divides the male population into age-sets of 8-year cycles, through which men progress from childhood to senior elderhood, each grade carrying specific roles and responsibilities.</p>
+        <p class="font-body text-base text-surface-container-low leading-relaxed">Power alternates between grades on a regular cycle, preventing the accumulation of permanent authority by any individual or clan. The <em>Abba Gadaa</em> (Father of the Gadaa) serves as head of state for one 8-year term only, making this system a uniquely term-limited democratic governance structure centuries before modern democracies.</p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-1">check_circle</span><div><p class="font-label font-semibold text-sm">Democratic Term Limits</p><p class="font-body text-sm text-surface-container">The Abba Gadaa governs for exactly 8 years, then power transfers to the next grade — an ancient form of democratic transition of power.</p></div></div>
+        <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-1">check_circle</span><div><p class="font-label font-semibold text-sm">Legislation &amp; Law</p><p class="font-body text-sm text-surface-container">Laws (<em>seera</em>) are enacted through the Gadaa assembly (gumi gayo) where all adult men participate in decision-making through consensus.</p></div></div>
+        <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-1">check_circle</span><div><p class="font-label font-semibold text-sm">Women's Role (Siinqee)</p><p class="font-body text-sm text-surface-container">The siinqee institution gave women ceremonial authority and the right to strike laws enacted without their consultation — an early form of women's rights protection.</p></div></div>
+        <div class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary mt-1">check_circle</span><div><p class="font-label font-semibold text-sm">UNESCO Recognition</p><p class="font-body text-sm text-surface-container">In 2016, the Gadaa system was inscribed on UNESCO's Representative List of the Intangible Cultural Heritage of Humanity — a global recognition of its significance.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="flex flex-col gap-8">
+    <div class="text-center">
+      <span class="font-label font-semibold text-sm text-secondary uppercase tracking-widest">Gallery</span>
+      <h2 class="font-display font-bold text-2xl md:text-3xl text-primary mt-3 tracking-tight">Life Among the Borana</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="col-span-2 row-span-2 relative overflow-hidden rounded-xl group h-72 md:h-auto">
+        <img src="images/nothern.png" alt="Northern Kenya landscape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <span class="absolute bottom-4 left-4 font-label font-semibold text-sm text-on-primary uppercase tracking-wide">Northern Lands</span>
+      </div>
+      <div class="relative overflow-hidden rounded-xl group aspect-square"><img src="images/boranacamels.jpeg" alt="Camels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/><div class="absolute bottom-2 left-2 font-label font-semibold text-xs text-on-primary uppercase bg-black/40 px-2 py-1 rounded">Camels</div></div>
+      <div class="relative overflow-hidden rounded-xl group aspect-square"><img src="images/ells.jpg" alt="Wells" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/><div class="absolute bottom-2 left-2 font-label font-semibold text-xs text-on-primary uppercase bg-black/40 px-2 py-1 rounded">Sacred Wells</div></div>
+      <div class="relative overflow-hidden rounded-xl group aspect-square"><img src="images/boranavillage.jpg" alt="Village" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/><div class="absolute bottom-2 left-2 font-label font-semibold text-xs text-on-primary uppercase bg-black/40 px-2 py-1 rounded">Village Life</div></div>
+      <div class="relative overflow-hidden rounded-xl group aspect-square"><img src="images/ceremonyborana.webp" alt="Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/><div class="absolute bottom-2 left-2 font-label font-semibold text-xs text-on-primary uppercase bg-black/40 px-2 py-1 rounded">Ceremony</div></div>
+    </div>
+  </section>
+
+    <section class="flex flex-col gap-8">
+      <div id="quiz-header" class="mb-8 flex flex-col gap-3">
+    <div class="flex justify-between items-center">
+      <span id="progress-label" class="font-label font-semibold text-sm text-on-surface-variant uppercase tracking-wider">Question 1 of 20</span>
+      <span id="score-display" class="font-label font-semibold text-sm text-secondary">Score: 0</span>
+    </div>
+    <div class="w-full bg-surface-container-high rounded-full h-2">
+      <div id="progress-bar" class="progress-bar bg-secondary h-2 rounded-full" style="width:5%"></div>
+    </div>
+    <div id="category-badge" class="inline-flex items-center gap-2">
+      <span class="w-2 h-2 bg-secondary rounded-full"></span>
+      <span class="font-label font-semibold text-xs text-secondary uppercase tracking-widest">Nilotes – Luo</span>
+    </div>
+  </div>
+     <!-- Quiz Card -->
+  <div id="quiz-card" class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline/10 p-8 md:p-10 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-24 h-24 bg-surface-container-high rounded-bl-full opacity-40"></div>
+    <div class="relative z-10">
+      <h2 id="question-text" class="font-display font-bold text-xl md:text-2xl text-primary mb-8 leading-tight"></h2>
+      <div id="options-container" class="flex flex-col gap-3"></div>
+      <div id="feedback-box" class="hidden mt-6 p-4 rounded-xl flex items-start gap-3"></div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="flex justify-between items-center mt-8">
+    <button id="btn-next" onclick="nextQuestion()" class="hidden bg-primary text-on-primary font-label font-bold px-8 py-3 rounded hover:bg-surface-tint transition-colors flex items-center gap-2">
+      Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    </button>
+    <button id="btn-restart" onclick="restartQuiz()" class="hidden border-2 border-secondary text-secondary font-label font-bold px-8 py-3 rounded hover:bg-secondary hover:text-on-secondary transition-colors">
+      Retake Quiz
+    </button>
+  </div>
+
+  <!-- Results (hidden until end) -->
+  <div id="results-panel" class="hidden mt-12 bg-primary text-on-primary rounded-2xl p-8 md:p-12 text-center">
+    <span class="material-symbols-outlined text-secondary text-5xl">emoji_events</span>
+    <h2 class="font-display font-black text-3xl mt-4 mb-2">Quiz Complete!</h2>
+    <div id="final-score-text" class="font-display font-bold text-5xl text-secondary my-4"></div>
+    <p id="result-message" class="font-body text-lg text-surface-container-low mb-8"></p>
+    <div class="grid grid-cols-2 gap-4 mb-8">
+      <div class="bg-on-primary/10 rounded-xl p-4"><div id="correct-count" class="font-display font-black text-3xl text-secondary"></div><div class="font-label font-semibold text-sm text-surface-container-low uppercase mt-1">Correct</div></div>
+      <div class="bg-on-primary/10 rounded-xl p-4"><div id="wrong-count" class="font-display font-black text-3xl text-secondary"></div><div class="font-label font-semibold text-sm text-surface-container-low uppercase mt-1">Incorrect</div></div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button onclick="restartQuiz()" class="bg-secondary text-on-secondary font-label font-bold px-8 py-3 rounded hover:bg-secondary-container transition-colors">Retake Quiz</button>
+      <a href="index.html" class="border-2 border-on-primary/30 text-on-primary font-label font-bold px-8 py-3 rounded hover:bg-on-primary/10 transition-colors">Back to Home</a>
+    </div>
+  </div>
+  </section>
+
+  <div class="flex justify-between items-center pt-4 border-t border-outline/15">
+    <a href="luo.html" class="flex items-center gap-2 font-label font-semibold text-sm text-on-surface-variant hover:text-secondary transition-colors"><span class="material-symbols-outlined">arrow_back</span> Nilotes – Luo</a>
+    <a href="arab.html" class="flex items-center gap-2 font-label font-semibold text-sm text-secondary hover:text-secondary-container transition-colors">Next: Semites – Arab <span class="material-symbols-outlined">arrow_forward</span></a>
+  </div>
+</main>
+<div class="beadwork-divider"></div>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t-4 border-secondary py-16 px-5 md:px-16">
+  <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
+    <div class="font-display font-black text-2xl text-primary">Heritage Hub</div>
+    <nav class="flex flex-wrap justify-center gap-8">
+      <a href="index.html" class="font-body text-sm text-black hover:text-primary transition-colors">Home</a>
+      <a href="kikuyu.html" class="font-body text-sm text-black hover:text-red-500 transition-colors">Bantu – Kikuyu</a>
+      <a href="luo.html" class="font-body text-sm text-black hover:text-red-500 transition-colors">Nilotes – Luo</a>
+      <a href="borana.html" class="font-body text-sm text-color hover:text-red-500 transition-colors">Cushites – Borana</a>
+      <a href="arab.html" class="font-body text-sm text-black hover:text-red-500 transition-colors">Semites – Arab</a>
+      <a href="quiz.html" class="font-body text-sm text-black hover:text-red-500 transition-colors">Test Yourself</a>
+      <a href="contact.html" class="font-body text-sm text-black hover:text-red-500 transition-colors">Contact</a>
+    </nav>
+    <div class="font-caption text-xs text-black text-center">© 2026 Giovan Gitonga. All Rights Reserved.</div>
+  </div>
+</footer>
+  <button id="scrollTop"
+    class="hidden fixed bottom-6 right-6 z-50 p-6 rounded-full bg-secondary text-color shadow-lg hover:scale-110 transition">
+
+    <span class="material-symbols-outlined">
+      keyboard_arrow_up
+    </span>
+
+  </button>
+</body>
+<script>
+const questions = [
+  // CUSHITES – BORANA (5 questions)
+  { category:"Cushites – Borana", q:"What is the name of the Borana democratic governance system recognized by UNESCO?", opts:["Kiama","Ruoth System","Gadaa System","Sultanate"], a:2, explanation:"The Gadaa System is the Borana's traditional democratic governance, inscribed in 2016 on UNESCO's Intangible Cultural Heritage list." },
+  { category:"Cushites – Borana", q:"Which language family do the Borana belong to?", opts:["Bantu","Nilotic","Cushitic","Semitic"], a:2, explanation:"The Borana are a Cushitic people, belonging to the Eastern Cushitic branch of the Afroasiatic language family." },
+  { category:"Cushites – Borana", q:"What are the sacred communal wells of the Borana called?", opts:["Ela","Siinqee","Seera","Ruoth"], a:0, explanation:"Ela are the deep stone wells central to Borana life. The ritual singing that accompanies cattle watering at these wells is a celebrated cultural tradition." },
+  { category:"Cushites – Borana", q:"What is the most important daily food for the Borana people?", opts:["Fish","Camel milk","Ugali","Biryani"], a:1, explanation:"Camel milk is the most important daily food for the Borana, a reflection of their pastoral lifestyle in which camels are central to survival." },
+  { category:"Cushites – Borana", q:"What term describes the head of government in the Gadaa system?", opts:["Sultan","Abba Gadaa","Ruoth","Kiama"], a:1, explanation:"The Abba Gadaa (Father of the Gadaa) serves as head of state for one 8-year term — a term-limited democratic leadership structure." },
+];
+
+let current = 0, score = 0, answered = false;
+
+function loadQuestion() {
+  const q = questions[current];
+  answered = false;
+  
+  // Update progress
+  document.getElementById('progress-label').textContent = `Question ${current+1} of ${questions.length}`;
+  document.getElementById('progress-bar').style.width = `${((current+1)/questions.length)*100}%`;
+  document.getElementById('category-badge').innerHTML = `<span class="w-2 h-2 bg-secondary rounded-full"></span><span class="font-label font-semibold text-xs text-secondary uppercase tracking-widest">${q.category}</span>`;
+  document.getElementById('question-text').textContent = q.q;
+  document.getElementById('feedback-box').classList.add('hidden');
+  document.getElementById('btn-next').classList.add('hidden');
+  
+  const container = document.getElementById('options-container');
+  container.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-opt';
+    div.innerHTML = `<span class="w-7 h-7 rounded-full border-2 border-outline-variant flex-shrink-0 flex items-center justify-center font-label font-bold text-sm text-on-surface-variant">${String.fromCharCode(65+i)}</span>${opt}`;
+    div.onclick = () => selectAnswer(i, div);
+    container.appendChild(div);
+  });
+}
+
+function selectAnswer(selected, el) {
+  if (answered) return;
+  answered = true;
+  const q = questions[current];
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach(o => o.classList.add('locked'));
+  
+  const fb = document.getElementById('feedback-box');
+  if (selected === q.a) {
+    score++;
+    el.classList.add('correct');
+    opts[q.a].classList.add('correct');
+    fb.className = 'mt-6 p-4 rounded-xl flex items-start gap-3 bg-tertiary-fixed/30 border border-on-tertiary-container';
+    fb.innerHTML = `<span class="material-symbols-outlined text-on-tertiary-container mt-0.5">check_circle</span><div><p class="font-label font-bold text-sm text-on-tertiary-container">Correct!</p><p class="font-body text-sm text-on-surface-variant mt-1">${q.explanation}</p></div>`;
+  } else {
+    el.classList.add('wrong');
+    opts[q.a].classList.add('correct');
+    fb.className = 'mt-6 p-4 rounded-xl flex items-start gap-3 bg-secondary/10 border border-secondary/30';
+    fb.innerHTML = `<span class="material-symbols-outlined text-secondary mt-0.5">cancel</span><div><p class="font-label font-bold text-sm text-secondary">Not quite.</p><p class="font-body text-sm text-on-surface-variant mt-1">${q.explanation}</p></div>`;
+  }
+  fb.classList.remove('hidden');
+  document.getElementById('score-display').textContent = `Score: ${score}`;
+  document.getElementById('btn-next').classList.remove('hidden');
+  
+  if (current === questions.length - 1) {
+    document.getElementById('btn-next').innerHTML = 'See Results <span class="material-symbols-outlined text-sm">emoji_events</span>';
+  }
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= questions.length) {
+    showResults();
+  } else {
+    loadQuestion();
+  }
+}
+
+function showResults() {
+  document.getElementById('quiz-card').classList.add('hidden');
+  document.getElementById('quiz-header').classList.add('hidden');
+  document.getElementById('btn-next').classList.add('hidden');
+  document.getElementById('results-panel').classList.remove('hidden');
+  
+  const pct = Math.round((score/questions.length)*100);
+  document.getElementById('final-score-text').textContent = `${score} / ${questions.length}`;
+  document.getElementById('correct-count').textContent = score;
+  document.getElementById('wrong-count').textContent = questions.length - score;
+  
+  let msg = '';
+  if (pct >= 90) msg = "Outstanding! You have exceptional knowledge of Kenya's Borana cultural heritage. You are a true Heritage Scholar!";
+  else if (pct >= 70) msg = "Great work! You have a solid understanding of Kenya's Borana ethnic families. Keep exploring!";
+  else if (pct >= 50) msg = "Good effort! You've grasped the basics. We recommend revisiting the page to deepen your knowledge on Borana cultural heritage.";
+  else msg = "Keep learning! Kenya's Borana cultural heritage is rich and fascinating. Visit each community page and try again.";
+  document.getElementById('result-message').textContent = msg;
+}
+
+function restartQuiz() {
+  current = 0; score = 0;
+  document.getElementById('quiz-card').classList.remove('hidden');
+  document.getElementById('quiz-header').classList.remove('hidden');
+  document.getElementById('results-panel').classList.add('hidden');
+  document.getElementById('score-display').textContent = 'Score: 0';
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+<script src="script.js"></script>
+</html>
